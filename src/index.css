@@ -1,7 +1,7 @@
-/* body {
+body {
   padding-top: 4.2rem;
   padding-bottom: 4.2rem;
-  background: rgba(0, 0, 0, 0.76);
+  background:rgba(255, 255, 255, 0.76);
 }
 a {
   text-decoration: none !important;
@@ -68,22 +68,22 @@ h3 {
 form .error {
   color: #ff0000;
 }
-#second {
-  display: none;
-} */
 
-@import url('https://fonts.googleapis.com/css?family=Righteous');
-@import url('https://fonts.googleapis.com/css?family=Acme');
+/* @import url("https://fonts.googleapis.com/css?family=Righteous");
+@import url("https://fonts.googleapis.com/css?family=Acme");
 
 .navbar-brand {
-  font-family: 'Righteous', cursive;
+  font-family: "Righteous", cursive;
 }
 
-.navbar-collapse, .profile-username, .subscribe-btn {
-  font-family: 'Acme', sans-serif;
+.navbar-collapse,
+.profile-username,
+.subscribe-btn {
+  font-family: "Acme", sans-serif;
 }
 
-.card-link, .btn-link {
+.card-link,
+.btn-link {
   color: #000;
 }
 
@@ -171,8 +171,7 @@ p {
   }
 }
 
-@media (min-width: 992px) 
-{
+@media (min-width: 992px) {
   .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
     text-align: center;
     display: table-cell;
@@ -216,4 +215,5 @@ p {
   .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa > .badge {
     top: -7px;
   }
-}
+} */
+
