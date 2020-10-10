@@ -1,23 +1,18 @@
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
 import 'font-awesome/css/font-awesome.min.css'
+import 'react-quill/dist/quill.snow.css'
 
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux'
-import { compose, createStore, applyMiddleware } from 'redux'
 
 import App from './App';
 import './index.css'
 import * as serviceWorker from './serviceWorker';
-import thunk from 'redux-thunk'
-import rootReducer from './reducers'
+import store from './store'
 
-const store = createStore(
-  rootReducer,
-  compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
-)
+// const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = (
   // теперь реакт компоненты будут знать про редакс
@@ -35,3 +30,4 @@ render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
