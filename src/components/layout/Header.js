@@ -60,17 +60,17 @@ class Header extends React.Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link className="nav-link" to="/">
                   <i className="fa fa-globe"></i>
                   All Dishes
                 </Link>
-              </li>
+              </li> */}
               {isAuthenticated && (
                 <li className="nav-item">
-                  <Link className="nav-link" to="/feed">
+                  <Link className="nav-link" to="/dishes">
                     <i className="fa fa-rss"></i>
-                    Feed
+                    All Dishes
                   </Link>
                 </li>
               )}
