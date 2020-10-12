@@ -9,6 +9,7 @@ import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
+import AllDishes from './components/AllDishes'
 
 if (localStorage.access_token) {
   const { access_token } = localStorage
@@ -28,8 +29,9 @@ function App() {
       <React.Fragment>
         <Header />
         <div className="container">
-          <Route path="/register" component={Register}/>
+          <Route path="/register" component={Register}/> 
           <Route path="/login" component={Login}/>
+          <Route path="/" component={AllDishes}/>      
         </div>
         <Footer />
       </React.Fragment>

@@ -9,7 +9,7 @@ const Login = ({ history }) => {
 
     // позволяет диспатчить акшны в стор
     const dispatch = useDispatch()
-    const auth = useSelector(state => state.auth)
+    const auth = useSelector(state => state.auth)  // потенциальная ошибка
     
     const [credentials, SetCredentials] = useState({
         email: "",

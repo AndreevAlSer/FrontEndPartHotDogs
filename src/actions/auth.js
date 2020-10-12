@@ -1,4 +1,3 @@
-
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 
@@ -16,12 +15,9 @@ export const login = (userData) => (dispatch) => {
         .post('api/auth/signin', userData)
         .then((res)=>{
             const {token} = res.data.accessToken
-            console.log("res.data ", res.data)
-            console.log("token ", token)
             localStorage.setItem('access_token', token)
             setAuthToken(token)
             const decoded = jwtDecode(token, { header: true })
-            console.log("decoded ", decoded)
             dispatch(setCurrentUser(decoded))
         })
 }

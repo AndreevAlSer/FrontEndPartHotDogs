@@ -1,5 +1,13 @@
 import {combineReducers} from 'redux'
 
-import auth from './auth'
+import {auth} from './auth'
+import {dishes} from './dishes'
+import {app} from "./app";
 
-export default combineReducers({auth})
+const rootReducer = combineReducers({
+    auth: auth,
+    dishes: dishes,
+    app: app
+})
+
+export default rootReducer;

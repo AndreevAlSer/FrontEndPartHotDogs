@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { FETCH_DISHES, HIDE_LOADER, SHOW_LOADER, SHOW_ALERT, HIDE_ALERT } from "./types"
 
 export function showLoader() {
@@ -31,22 +32,23 @@ export function hideAlert() {
     }
 }
 
-export function fetchPosts() {
-    return async dispatch => {
-        try {
-            dispatch(showLoader())
-
-            const response = await fetch('api/dish')     
-            const json = await response.json()   
-    
-            setTimeout(()=>{
-                dispatch({type:FETCH_DISHES, payload:json})
-                dispatch(hideLoader())
-            }, 800) 
-        } 
-        catch(e) {
-            dispatch(showAlert('Что-то пошло не так...'))
-            dispatch(hideLoader())
+export const fetchDishes = () => (dispatch) => {
+    dispatch(showLoader())
+    axios
+    .get("api/dish", {
+        headers: {
+           Authorization: "Bearer " + localStorage.getItem("access_token")
         }
-    }
-}
+     })
+      .then((res) => dispatch({
+        type: FETCH_DISHES,
+        payload: {
+          dishesFromPayload: res.data.dish,
+        }  
+    }))
+      .catch(() => {
+        dispatch(showAlert('Something went wrong...'))
+        dispatch(hideLoader())
+      })
+    dispatch(hideLoader())
+  }
