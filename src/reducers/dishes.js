@@ -2,13 +2,13 @@ import { FETCH_DISHES } from "../actions/types"
 
 const initialState = {
     // массив dishes с сервера
-    fetchedDishes:[]
+    fetchedDishes:[]  
 }
 
 export const dishes = (state=initialState, action) => {
     switch (action.type) {
         case FETCH_DISHES:
-            return {...state, fetchedDishes: action.payload}
+            return {...state, fetchedDishes: action.dishes}
         default: return state
     }
 }

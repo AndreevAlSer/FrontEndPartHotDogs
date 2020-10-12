@@ -32,23 +32,30 @@ export function hideAlert() {
     }
 }
 
+const _getDishes = (dishes) => ({
+    type: FETCH_DISHES,
+    dishes
+});
+ 
 export const fetchDishes = () => (dispatch) => {
     dispatch(showLoader())
-    axios
-    .get("api/dish", {
+    axios.get("api/dish", {
         headers: {
-           Authorization: "Bearer " + localStorage.getItem("access_token")
-        }
-     })
-      .then((res) => dispatch({
-        type: FETCH_DISHES,
-        payload: {
-          dishesFromPayload: res.data.dish,
-        }  
-    }))
-      .catch(() => {
+            Authorization: "Bearer " + localStorage.getItem("access_token")
+            }
+    })
+    .then((res) => {
+        const dishes = [];
+
+        res.data.dish.forEach(item => {
+            dishes.push(item);
+        });
+        
+        dispatch(_getDishes(dishes))
+    })
+    .catch(() => {
         dispatch(showAlert('Something went wrong...'))
         dispatch(hideLoader())
-      })
+    })
     dispatch(hideLoader())
-  }
+}

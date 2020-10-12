@@ -8,16 +8,15 @@ const Dishes = () => {
 
     // позволяет диспатчить акшны в стор
     const dispatch = useDispatch()
-    const dishes = Object.values(useSelector(state => state.dishes.fetchedDishes))
+    const dishes = useSelector(state => state.dishes.fetchedDishes)
     const loading = useSelector(state => state.app.loading)
 
-    useEffect(() => dispatch(fetchDishes()), [])
+    useEffect(() => (dispatch(fetchDishes())), [])
 
     if(loading) {
         return <Loader/>
     }
-
-    return dishes.map(dish => Object.values(dish).map(dish2 => <Dish dish={dish2} key={dish2.id}></Dish>))
+    return dishes.map(dish => <Dish dish={dish} key={dish.id}></Dish>)
 }
 
 export default Dishes
