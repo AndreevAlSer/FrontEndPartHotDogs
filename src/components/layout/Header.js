@@ -69,9 +69,7 @@ class Header extends React.Component {
               </li> */}
               {isAuthenticated && (
                 <li className="nav-item">
-                  <Button variant="primary" onClick={handleShow}>
-                      Launch demo modal
-                  </Button>
+                    <AddDish/>
                 </li>
               )}
             </ul>
