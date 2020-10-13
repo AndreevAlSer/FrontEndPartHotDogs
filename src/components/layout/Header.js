@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { logout } from '../../actions/auth'
+import {AddDish} from './AddForm'
 
 class Header extends React.Component {
 
@@ -68,10 +69,9 @@ class Header extends React.Component {
               </li> */}
               {isAuthenticated && (
                 <li className="nav-item">
-                  <Link className="nav-link" to="/dishes">
-                    <i className="fa fa-rss"></i>
-                    All Dishes
-                  </Link>
+                  <Button variant="primary" onClick={handleShow}>
+                      Launch demo modal
+                  </Button>
                 </li>
               )}
             </ul>
