@@ -1,7 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
+
 import { addNewDish } from "../../actions/add_dishes";
 import { useDispatch } from "react-redux";
+import { fetchDishes } from "../../actions/fetch_dishes";
+import history from "../helpers/history";
 
 export default function AddDish() {
   const [dishData, SetDishData] = useState({
@@ -20,15 +23,28 @@ export default function AddDish() {
 
   // -----------------------относится к модальной форме-------------------------------------------------
   const [show, setShow] = useState(false);
+  const [isFormCloseAfterOpening, setIsFormCloseAfterOpening] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    setIsFormCloseAfterOpening(true);
+  };
   const handleShow = () => setShow(true);
 
   const onAddDishSubmit = (e) => {
     e.preventDefault();
     dispatch(addNewDish(dishData));
     handleClose();
+    dispatch(fetchDishes());
   };
+
+  useEffect(() => {
+    if (isFormCloseAfterOpening == true) {
+      history.push("/");
+      dispatch(fetchDishes());
+    }
+  }, [isFormCloseAfterOpening]);
+
   // -----------------------относится к модальной форме-------------------------------------------------
 
   return (

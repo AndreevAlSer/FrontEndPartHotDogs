@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { login } from "../../actions/auth";
+import { fetchDishes } from "../../actions/fetch_dishes";
 
 const Login = ({ history }) => {
   // позволяет диспатчить акшны в стор
@@ -21,12 +22,7 @@ const Login = ({ history }) => {
   useEffect(() => {
     if (auth.isAuthenticated) {
       history.push("/");
-    }
-  }, [auth]);
-
-  useEffect(() => {
-    if (auth.isAuthenticated) {
-      history.push("/");
+      dispatch(fetchDishes());
     }
   }, [auth]);
 
