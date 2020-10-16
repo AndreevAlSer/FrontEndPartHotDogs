@@ -39,7 +39,7 @@ export default function AddDish() {
   };
 
   useEffect(() => {
-    if (isFormCloseAfterOpening == true) {
+    if (isFormCloseAfterOpening === true) {
       history.push("/");
       dispatch(fetchDishes());
     }
